@@ -59,7 +59,21 @@ public class LoginSteps {
         Assert.assertTrue(actualError);
 	}
 
-	@When("the user enters the valid OTP")
+	
+    @When("waits until the OTP expires and clicks on resend button")
+    public void waits_until_the_otp_expires_and_clicks_on_resend_button() {
+        Base.sleep(35000); // wait until OTP expiry (adjust based on actual timeout)
+        loginPage.clickResendOtp();
+    }
+
+    @Then("the login page should be loaded successfully")
+    public void the_login_page_should_be_loaded_successfully() {
+        loginPage = new LoginPage(driver, extTest);  // initialize here
+        boolean pageLoaded = loginPage.pageLoadedSuccessfully();
+        Assert.assertTrue(pageLoaded);
+    }
+
+    @When("the user enters the valid OTP")
 	public void the_user_enters_the_valid_otp() {
 		loginPage.enterOtpManually(driver); 
 		Base.sleep();

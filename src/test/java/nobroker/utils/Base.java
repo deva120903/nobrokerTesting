@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Base {
 	
-	static final int TIME=2000;
+	static final int TIME=1000;
 	public static WebDriver driver;
 
 	public void lanchBrowser() {
@@ -38,11 +38,12 @@ public class Base {
 		driver.get(prop.getProperty("URL"));
 	}
 	public static void sleep(){
-		try {
-			Thread.sleep(TIME);
-		}
-		catch(InterruptedException e) {
-			e.printStackTrace();
-		}
+		sleep(TIME);
+	}public static void sleep(int millis) {
+	    try {
+	        Thread.sleep(millis);
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    }
 	}
 }

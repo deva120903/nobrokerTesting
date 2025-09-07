@@ -9,5 +9,9 @@ public class Locators {
 	public static By inputNumber=By.id("signUp-phoneNumber");
 	public static By continueButton=By.id("signUpSubmit");
 	public static By otpInputs = By.xpath("//input[@aria-label='Please enter verification code. Digit 1']");
+
+	//otp resend locator
+    public static By resendOtpLink = By.xpath("//div[contains(text(),'Resend OTP')]");
+
 }
 

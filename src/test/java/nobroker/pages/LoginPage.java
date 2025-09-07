@@ -100,7 +100,19 @@ public class LoginPage {
 			return false;
 		}
 	}
-	
+    public void clickResendOtp() {
+        driver.findElement(Locators.resendOtpLink).click();
+    }
+
+    public boolean pageLoadedSuccessfully() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.loginButton));
+            return true;
+        } catch (TimeoutException te) {
+            return false;
+        }
+    }
+
 	
 }
 
