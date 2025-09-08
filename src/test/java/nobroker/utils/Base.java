@@ -14,7 +14,7 @@ public class Base {
 	static final int TIME=1000;
 	public static WebDriver driver;
 
-	public void lanchBrowser() {
+	public static void launchBrowser() {
 
 		Properties prop = PropertyReader.readProperties();
 

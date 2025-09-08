@@ -1,6 +1,7 @@
 package nobroker.pages;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Scanner;
 
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import nobroker.objectRepository.Locators;
 
@@ -51,15 +53,31 @@ public class LoginPage {
 		otpField.sendKeys(otp);
 	}
 	
-	public void enterOtpManually(WebDriver driver) {
-	    Scanner sc = new Scanner(System.in);
-	    System.out.print("Enter OTP received in mobile SMS : ");
-	    String otp = sc.nextLine();
+	private static final Scanner CONSOLE_SCANNER = new Scanner(System.in);
 
-	    // Wait until OTP input box is visible
-	    wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-	    WebElement otpBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[aria-label*='verification code']")));
-	    otpBox.sendKeys(otp);
+	public void enterOtpManually(WebDriver driver) {
+	    try {
+	        System.out.print("Enter OTP received in mobile SMS : ");
+	        String otp = CONSOLE_SCANNER.nextLine().trim();
+
+	        List<WebElement> otpFields = wait.until(
+	            ExpectedConditions.visibilityOfAllElementsLocatedBy(Locators.otpInputs)
+	        );
+
+	        if (otpFields.size() == 1) {
+	            otpFields.get(0).clear();
+	            otpFields.get(0).sendKeys(otp);
+	        } else {
+	            for (int i = 0; i < Math.min(otpFields.size(), otp.length()); i++) {
+	                otpFields.get(i).clear();
+	                otpFields.get(i).sendKeys(Character.toString(otp.charAt(i)));
+	            }
+	        }
+
+	        extTest.log(Status.INFO, "Entered OTP manually");
+	    } catch (Exception e) {
+	        extTest.log(Status.FAIL, "Failed to enter OTP: " + e.getMessage());
+	    }
 	}
 
 //
