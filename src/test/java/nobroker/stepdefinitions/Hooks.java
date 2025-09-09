@@ -37,7 +37,7 @@ public class Hooks extends Base {
         extTest = extReports.createTest(scenario.getName());
     }
 
-    @Before("@Search")
+    @Before("@Login")
     public void loginBeforeSearch() {
         LoginPage loginPage = new LoginPage(driver, Hooks.extTest);
         driver.get("https://www.nobroker.in/");

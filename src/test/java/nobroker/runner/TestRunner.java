@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 	features= 
-            "src\\test\\resources\\features\\HelpCenter.feature",
+            "src\\test\\resources\\features\\Painting_Cleaning.feature",
 	glue="nobroker.stepdefinitions",
 	plugin= {"pretty","html:reports/cucumber-html-report.html"}
 )
