@@ -169,7 +169,12 @@ public class Painting_CleaningPage {
     public boolean isInteriorPainting() {
     	try {
             WebElement inPainting = wait.until(ExpectedConditions.elementToBeClickable(Locators.interiorPaintingIcon));
-            inPainting.click();
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",inPainting );
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", inPainting);
+
+            // Verify that furnished items appear after click
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"INTERIOR_PAINTING_CONSULTATION\"]/div/div[1]/div[2]/div[2]/img")));
+             
             return true;
         } catch (TimeoutException te) {
             System.out.println("Interior Painting not clickable: " + te.getMessage());
@@ -180,10 +185,71 @@ public class Painting_CleaningPage {
     public boolean isExteriorPainting() {
     	try {
             WebElement exPainting = wait.until(ExpectedConditions.elementToBeClickable(Locators.exteriorPaintingIcon));
-            exPainting.click();
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",exPainting );
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", exPainting);
+            
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"EXTERIOR_PAINTING_CONSULTATION\"]/div/div[1]/div[2]/div[2]/img")));
             return true;
         } catch (TimeoutException te) {
             System.out.println("Interior Painting not clickable: " + te.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean verifyPaintingPage() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"EXTERIOR_PAINTING_CONSULTATION\"]/div/div[2]/div[3]/button")));
+            return true;
+        } catch (TimeoutException te) {
+            System.out.println("Painting page not viewed properly: " + te.getMessage());
+            return false;
+        }
+    }
+    
+    public void isInvalidData(String inValiddata) {
+    	try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"app\"]/div/div/main/header/nav/div[1]/div/div")));
+            WebElement searchItemicon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"search-bar\"]/input")));
+            searchItemicon.click();
+            
+            WebElement searchItem = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"search-bar\"]/input")));
+
+            searchItem.sendKeys(inValiddata);
+            
+        } catch (TimeoutException te) {
+            System.out.println("The entered data properly executed: " + te.getMessage());
+            
+        }
+    }
+    
+    public boolean preventSearch() {
+    	try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"search-bar\"]/div[2]/img")));
+            WebElement backMenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"search-bar\"]/div[1]/img")));
+            backMenu.click();
+            return true;
+        } catch (TimeoutException te) {
+            System.out.println("System should prevent invalid search action " + te.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean changeMenu() {
+    	try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"main-menu\"]/div[1]")));
+            return true;
+        } catch (TimeoutException te) {
+            System.out.println("System should does not allow to navigate to other menu in one action " + te.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean validateAccessMenu() {
+    	try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"app\"]/div/div/main/div/div/span[1]/section/div[1]")));
+            return true;
+        } catch (TimeoutException te) {
+            System.out.println("The access denied to navigate to other menu in one action " + te.getMessage());
             return false;
         }
     }

@@ -20,6 +20,39 @@ Feature: Verify the Painting & Cleaning page Functionality
     Given User opens the menu on Home page
     When User selects Painting and Cleaning service
     And User clicks on painting
-    And User selects interior painting 
+    And User selects interior painting
     And User selects exterior painting
     Then painting page should be visible
+    
+    @Login 
+  Scenario: User validates invalid search and restricted service selection
+    Given User opens the menu on Home page
+    When User selects Painting and Cleaning service
+    And User enter invalid data and clicks the Search button
+    Then System should prevent invalid search action
+    When User wants to change the menu in the same page in action
+    Then User can not access the menu
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
