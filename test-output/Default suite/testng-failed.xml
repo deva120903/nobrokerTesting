@@ -7,7 +7,7 @@
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
+          <include name="runScenario" invocation-numbers="1 2 3 4 6 7 8 9 10 11 12 13"/>
         </methods>
       </class> <!-- nobroker.runner.TestRunner -->
     </classes>

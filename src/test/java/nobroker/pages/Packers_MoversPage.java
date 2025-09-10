@@ -104,7 +104,7 @@ public class Packers_MoversPage {
     
 
 	
-	  public void enterSource(String source) {
+    public void enterSource(String source) {
 		  try {
 	            WebElement fromInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.pickupInput));
 	            fromInput.click();
@@ -146,25 +146,67 @@ public class Packers_MoversPage {
 	            extTest.log(Status.FAIL, "Failed to select to location: " + e.getMessage());
 	        }
 	  }
- 
 
-  public boolean navigateToInventoryWithoutAdding() { 
+
+public boolean navigateToInventoryWithoutAdding() { 
 	  try {
 		  WebElement verify = wait.until(ExpectedConditions.presenceOfElementLocated(
 	                By.xpath("//*[@id=\"content-wrapper\"]/div/div[2]/div/div/div/div[1]")  
 	            ));
-          
-         
-          return true;
-      } catch (TimeoutException te) {
-          System.out.println("Navigate without adding is verified: " + te.getMessage());
-          return false;
-      }
+        
+       
+        return true;
+    } catch (TimeoutException te) {
+        System.out.println("Navigate without adding is verified: " + te.getMessage());
+        return false;
     }
+  }
+
+    
+	  public boolean removeItemThatAdded() { 
+		  try {
+				/*
+				 * WebElement verify = wait.until(ExpectedConditions.presenceOfElementLocated(
+				 * By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[1]/div[1]/svg") ));
+				 * WebElement addedElementcheckIcon =
+				 * wait.until(ExpectedConditions.elementToBeClickable(Locators.selectedItems));
+				 * addedElementcheckIcon.click();
+				 * 
+				 * WebElement addedElementMinusIcon =
+				 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				 * "(//*[@id='decreament']/*[name()='svg'])[1]")));
+				 * addedElementMinusIcon.click();
+				 * 
+				 * WebElement addedElementMinusIcon1 =
+				 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				 * "(//*[@id='decreament']/*[name()='svg'])[2]")));
+				 * addedElementMinusIcon1.click();
+				 */
+			  
+			    
+	            WebElement closeButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"modalContent\"]/div[4]/div/button[1]")));
+	            closeButton.click();
+	          return true;
+	      } catch (TimeoutException te) {
+	          System.out.println("Navigate without adding is verified: " + te.getMessage());
+	          return false;
+	      }
+	    }
+
+		/*
+		 * public boolean navigateToInventoryWithoutAdding() { try { WebElement verify =
+		 * wait.until(ExpectedConditions.presenceOfElementLocated(
+		 * By.xpath("//*[@id=\"content-wrapper\"]/div/div[2]/div/div/div/div[1]") ));
+		 * 
+		 * 
+		 * return true; } catch (TimeoutException te) {
+		 * System.out.println("Navigate without adding is verified: " +
+		 * te.getMessage()); return false; } }
+		 */
 
   public boolean clickContinueWithoutAdd() {
   	try {
-  		WebElement clickContinueWithoutAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content-wrapper\"]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]")));
+  		WebElement clickContinueWithoutAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/button/div/div")));
         clickContinueWithoutAdd.click();
        
         return true;
@@ -175,32 +217,50 @@ public class Packers_MoversPage {
   }
 	
 //Check if alert is displayed
-  public boolean isAlertPresent() {
-      try {
-          wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='alertMessageBox']")));
-          extTest.log(Status.PASS, "Alert message displayed");
-          return true;
-      } catch (Exception e) {
-          extTest.log(Status.FAIL, "Alert not displayed: " + e.getMessage());
-          return false;
-      }
-  }
-
-  // Get alert text
-  public String getAlertMessage() {
-      try {
-          WebElement alert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='alertMessageBox']")));
-          String msg = alert.getText();
-          extTest.log(Status.INFO, "Alert message: " + msg);
-          return msg;
-      } catch (Exception e) {
-          extTest.log(Status.FAIL, "Failed to read alert message: " + e.getMessage());
-          return "";
-      }
-  }
+//Check if alert is present
+public boolean isAlertPresent() {
+   try {
+       WebElement alert = wait.until(ExpectedConditions
+               .visibilityOfElementLocated(By.id("alertMessageBox")));
+       return alert.isDisplayed();
+   } catch (Exception e) {
+       return false;
+   }
 }
-/*
- * public boolean addItems() { try { driver.findElement(addItemBtn).click();
- * return driver.findElement(addedItemsSection).isDisplayed(); } catch
- * (Exception e) { return false; } } }
- */
+
+//Get alert text
+public String getAlertMessage() {
+   try {
+       WebElement alert = wait.until(ExpectedConditions
+               .visibilityOfElementLocated(By.id("alertMessageBox")));
+       return alert.getText();
+   } catch (Exception e) {
+       return "";
+   }
+}
+//*[@id="modalContent"]/div[1]/div/img
+
+//*[@id="67d84a4ae50df484e137daeb"]/div[2]/div/div[2]/div[2]/div[2]/div/div[2]
+  public boolean addItems() { 
+	  try {
+		  
+		  WebElement clickdowntoAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"67d84a4ae50df484e137daeb\"]/div[2]/div/div[2]/div")));
+	        clickdowntoAdd.click();
+		    
+	  		WebElement clickAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"67d84a4ae50df484e137daeb\"]/div[2]/div/div[2]/div[2]/div[2]/div/div[2]/div")));
+	        clickAdd.click();
+	        WebElement clickContinueWithAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/button/div/div")));
+	        clickContinueWithAdd.click();
+	       
+	        WebElement clickCloseIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/button/div/div")));
+	        clickCloseIcon.click();
+	       
+	        return true;
+	    } catch (TimeoutException te) {
+	        System.out.println(" click continue with add selectable: " + te.getMessage());
+	        return false;
+	    }
+
+  }
+ }
+ 
