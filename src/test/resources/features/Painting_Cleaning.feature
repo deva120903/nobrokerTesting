@@ -31,28 +31,4 @@ Feature: Verify the Painting & Cleaning page Functionality
     And User enter invalid data and clicks the Search button
     Then System should prevent invalid search action
     When User wants to change the menu in the same page in action
-    Then User can not access the menu
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Then User can not access the menu      

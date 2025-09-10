@@ -61,5 +61,21 @@ public class Locators {
     public static final By paintingIcon=By.xpath("//*[@id=\"hs_painting\"]/div[1]/div[1]/div");
     public static final By interiorPaintingIcon=By.xpath("//*[@id=\"INTERIOR_PAINTING\"]/div[1]/div[1]/div");
     public static final By exteriorPaintingIcon=By.xpath("//*[@id=\"EXTERIOR_PAINTING\"]/div[1]/div[1]/div");
+    
+    
+    //6.  packers and movers locators
+    public static final By menuIcon = By.xpath("//*[@id=\"main-menu\"]/div[1]/img"); 
+    public static final By packersMoversService = By.xpath("//*[@id=\"main-menu\"]/div[2]/a[4]");
+    public static final By withinCityOption = By.xpath("//*[@id=\"content-wrapper\"]/div/div[2]/div/div/div/div[1]/div/div[3]/div/div[1]");
+   // public static final By cityInput = By.xpath("//*[@id=\"content-wrapper\"]/div/div[2]/div/div/div/div[1]/div/div[4]/p");
+    public static final By pickupInput = By.xpath("//*[@id=\"pnmLandingPageFromRelocationFormLocalitySearch\"]");
+    public static final By dropInput = By.xpath("//*[@id=\"pnmLandingPageToRelocationLocalitySearch\"]");
+    public static final By checkPriceBtn = By.id("checkPrice");
+    public static final By errorMessage = By.xpath("//div[@class='error']");
+    public static final By addInventoryBtn = By.id("addInventory");
+    public static final By continueBtn = By.id("continue");
+    public static final By alertMessage = By.xpath("//div[@class='alert']");
+    public static final By dropdownItem = By.xpath("//select[@id='roomDropdown']");
+    public static final By selectedItems = By.id("selectedItems");
 }
 

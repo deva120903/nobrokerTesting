@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-09T19:51:04 IST" name="Default suite" finished-at="2025-09-09T19:51:52 IST" duration-ms="48320">
+  <suite started-at="2025-09-10T14:35:54 IST" name="Default suite" finished-at="2025-09-10T14:37:01 IST" duration-ms="66453">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:nobroker.runner.TestRunner@1190200a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-09-09T19:51:04 IST" name="Default test" finished-at="2025-09-09T19:51:52 IST" duration-ms="48320">
+    <test started-at="2025-09-10T14:35:54 IST" name="Default test" finished-at="2025-09-10T14:37:01 IST" duration-ms="66453">
       <class name="nobroker.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:nobroker.runner.TestRunner@1190200a]" started-at="2025-09-09T19:51:04 IST" name="setUpClass" finished-at="2025-09-09T19:51:05 IST" duration-ms="1522" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:nobroker.runner.TestRunner@1190200a]" started-at="2025-09-10T14:35:54 IST" name="setUpClass" finished-at="2025-09-10T14:35:56 IST" duration-ms="1389" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@493da830]]>
+                <![CDATA[org.testng.TestRunner@f25f48a]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:nobroker.runner.TestRunner@1190200a]" started-at="2025-09-09T19:51:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-09T19:51:52 IST" duration-ms="46109" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:nobroker.runner.TestRunner@1190200a]" started-at="2025-09-10T14:35:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-10T14:37:00 IST" duration-ms="64465" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["User validates invalid search and restricted service selection"]]>
+                <![CDATA["User navigates and manages in Packers and Movers for move items from one place to another"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Verify the Painting & Cleaning page Functionality"]]>
+                <![CDATA["Verify the Packers & Movers page Functionality"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "com.aventstack.extentreports.ExtentTest.log(com.aventstack.extentreports.Status, String)" because "this.extTest" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.log(com.aventstack.extentreports.Status, String)" because "this.extTest" is null
+at nobroker.pages.Packers_MoversPage.isAlertPresent(Packers_MoversPage.java:184)
+at nobroker.stepdefinitions.Packers_MoversSteps.verify_alert_message(Packers_MoversSteps.java:76)
+at ✽.User verifies the alert message for not add item(file:///C:/Users/LENOVO/OneDrive/Desktop/CAPGEMINI%20%20training/nobroker_testing_application/src/test/resources/features/Packers_Movers.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:nobroker.runner.TestRunner@1190200a]" started-at="2025-09-09T19:51:52 IST" name="tearDownClass" finished-at="2025-09-09T19:51:52 IST" duration-ms="609" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:nobroker.runner.TestRunner@1190200a]" started-at="2025-09-10T14:37:00 IST" name="tearDownClass" finished-at="2025-09-10T14:37:01 IST" duration-ms="527" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
