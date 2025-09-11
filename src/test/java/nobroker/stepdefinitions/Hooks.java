@@ -43,6 +43,20 @@ public class Hooks extends Base {
         driver.get("https://www.nobroker.in/");
 
         loginPage.clickLogin();
+        loginPage.enterMobileNumber("7094080503");
+        loginPage.clickContinue();
+
+        // Enter OTP manually in console
+        loginPage.enterOtpManually(driver);
+        loginPage.clickContinue();
+        
+    }
+    @Before("@Login1")
+    public void loginBeforeSearch1() {
+        LoginPage loginPage = new LoginPage(driver, Hooks.extTest);
+        driver.get("https://www.nobroker.in/");
+
+        loginPage.clickLogin();
         loginPage.enterMobileNumber("8778114144");
         loginPage.clickContinue();
 

@@ -81,5 +81,11 @@ public class Locators {
     public static final By selectedItems = By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/div/div[2]");
   //  public static final By minusIcon=By.xpath("//*[@id=\"decreament\"]/svg");
 
+    
+    
+    //7.  Signout locators
+    
+      public static final By touchProfile= By.xpath("//*[@id=\"profile-icon\"]/div");
+      public static final By signOutBtn= By.xpath("//*[@id=\"profile-menu-dropdown\"]/div[6]");
 }
 

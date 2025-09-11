@@ -13,3 +13,14 @@ Feature: Verify the Packers & Movers page Functionality
     And User verifies the alert message for not add item
     And User add the items and verify the added items and click continue
     Then Packers and movers service verified
+    
+    @Login
+    Scenario: User navigates and manages in Packers and Movers for city tempo to move from one place to another
+    Given User opens the menu on Home page for packers and movers
+    When User selects packers and movers service
+    And User clicks on city tempo
+    And User enters the city name for city tempo
+    And User enter the source city for city tempo
+    And User enter the destination city for city tempo and click check price
+    And User add the vehicle and verify the added vehicle and click continue
+    Then Packers and movers service verified

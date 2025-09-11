@@ -193,6 +193,7 @@ public boolean navigateToInventoryWithoutAdding() {
 	      }
 	    }
 
+		
 		/*
 		 * public boolean navigateToInventoryWithoutAdding() { try { WebElement verify =
 		 * wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -202,8 +203,8 @@ public boolean navigateToInventoryWithoutAdding() {
 		 * return true; } catch (TimeoutException te) {
 		 * System.out.println("Navigate without adding is verified: " +
 		 * te.getMessage()); return false; } }
+		 * 
 		 */
-
   public boolean clickContinueWithoutAdd() {
   	try {
   		WebElement clickContinueWithoutAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/button/div/div")));
@@ -244,15 +245,21 @@ public String getAlertMessage() {
   public boolean addItems() { 
 	  try {
 		  
-		  WebElement clickdowntoAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"67d84a4ae50df484e137daeb\"]/div[2]/div/div[2]/div")));
-	        clickdowntoAdd.click();
-		    
-	  		WebElement clickAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"67d84a4ae50df484e137daeb\"]/div[2]/div/div[2]/div[2]/div[2]/div/div[2]/div")));
-	        clickAdd.click();
+			/*
+			 * WebElement clickdowntoAdd =
+			 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+			 * "//*[@id=\"67d84a4ae50df484e137daeb\"]/div[2]/div/div[2]/div[1]")));
+			 * clickdowntoAdd.click();
+			 * 
+			 * WebElement clickAdd =
+			 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+			 * "//*[@id=\"67d84a4ae50df484e137daeb\"]/div[2]/div/div[2]/div[2]/div[3]/div/div[2]/div"
+			 * ))); clickAdd.click();
+			 */
 	        WebElement clickContinueWithAdd = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/button/div/div")));
 	        clickContinueWithAdd.click();
 	       
-	        WebElement clickCloseIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"serviceDetail\"]/div/div/div[2]/div/div/button/div/div")));
+	        WebElement clickCloseIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"modalContent\"]/div[1]/div")));
 	        clickCloseIcon.click();
 	       
 	        return true;
@@ -262,5 +269,116 @@ public String getAlertMessage() {
 	    }
 
   }
+  
+  public boolean clickCityTempo() {
+	    try {
+	        WebElement cityTempoBtn = wait.until(
+	            ExpectedConditions.elementToBeClickable(
+	                By.xpath("//div[contains(text(),'City Tempo')]")
+	            )
+	        );
+
+	        // Scroll into view and click using JS
+	        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityTempoBtn);
+	        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].click();", cityTempoBtn);
+
+	        return true;
+	    } catch (TimeoutException te) {
+	        System.out.println("City Tempo option not clickable: " + te.getMessage());
+	        return false;
+	    }
+	}
+
+
+  
+  public boolean enterCityDemo() {
+	    try {
+	        // 1. Click the city dropdown (Select City field)
+	        WebElement cityDropdown = wait.until(ExpectedConditions.elementToBeClickable(
+	            By.xpath("//*[@id=\"content-wrapper\"]/div/div[2]/div/div/div/div[1]/div/div[4]/div/button") // dynamic locator for city box
+	        ));
+	        cityDropdown.click();
+
+	        // 2. Select Chennai option from the dropdown
+	        WebElement cityOption = wait.until(ExpectedConditions.elementToBeClickable(
+	            By.xpath("//*[@id=\"content-wrapper\"]/div/div[2]/div/div/div/div[1]/div/div[4]/div/ul/li[4]")
+	        ));
+	        cityOption.click();
+
+	        if (extTest != null) {
+	            extTest.log(Status.PASS, "City selected: Chennai");
+	        }
+	        return true;
+	    } catch (Exception e) {
+	        System.out.println("Failed to select city: " + e.getMessage());
+	        if (extTest != null) {
+	            extTest.log(Status.FAIL, "City not selected: " + e.getMessage());
+	        }
+	        return false;
+	    }
+	}
+
+
+	
+  public void enterSourcecityDemo(String source) {
+		  try {
+	            WebElement fromInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"pnmLandingPageFromRelocationFormLocalitySearch\"]")));
+	            fromInput.click();
+	            fromInput.clear();
+	            fromInput.sendKeys(source);
+	            Thread.sleep(1000);
+
+	            WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(
+	                    By.xpath("//*[@id='autocomplete-dropdown-container']/div[1]")  // first option in list
+	                ));
+	                firstOption.click();
+	                if (extTest != null) {
+	                    extTest.log(Status.PASS, "From location selected: " + source);
+	                }	        } catch (Exception e) {
+	            extTest.log(Status.FAIL, "Failed to select from location: " + e.getMessage());
+	        }
+	  }
+	  
+	  public void enterDestinationCitydemo(String destination) {
+		  try {
+	            WebElement toInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"pnmLandingPageToRelocationLocalitySearch\"]")));
+	            toInput.click();
+	            toInput.clear();
+	            toInput.sendKeys(destination);
+	            Thread.sleep(1000);
+
+	            WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(
+	                    By.xpath("//*[@id='autocomplete-dropdown-container']/div[1]")  // first option in list
+	                ));
+	                firstOption.click();
+
+	                if (extTest != null) {
+	                    extTest.log(Status.PASS, "From location selected: " + destination);
+	                }	 
+	                
+	                WebElement clickButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"getRealPriceButtonMobile\"]/div")));
+		            clickButton.click();
+		  } catch (Exception e) {
+	            extTest.log(Status.FAIL, "Failed to select to location: " + e.getMessage());
+	        }
+	  }
+	  
+	  public boolean addVehicle() {
+		  try {
+		  WebElement clickVehicle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content-wrapper\"]/div/div/div/div/div/div[3]/div[2]/div/div/div[2]/div/div[2]/div/div/div/div")));
+	        clickVehicle.click();
+		    
+	  		WebElement clickSchedule = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"content-wrapper\"]/div/div/div/div/div/div[3]/div[2]/div/div/div[3]/div/div/button")));
+	        clickSchedule.click();
+	        
+	      //*[@id="modalContent"]/div[1]/div/img
+	        WebElement clickClose = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"modalContent\"]/div[1]/div/img")));
+	        clickClose.click();
+	        return true;
+	  }catch (TimeoutException te) {
+	        System.out.println(" click continue with add selectable: " + te.getMessage());
+	        return false;
+	    }
+	  }
  }
  
