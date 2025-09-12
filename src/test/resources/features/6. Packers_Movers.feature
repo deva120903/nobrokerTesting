@@ -1,6 +1,6 @@
 Feature: Verify the Packers & Movers page Functionality
 
-  @Login
+  @Login1
   Scenario: User navigates and manages in Packers and Movers for move items from one place to another
     Given User opens the menu on Home page for packers and movers
     When User selects packers and movers service
@@ -14,7 +14,7 @@ Feature: Verify the Packers & Movers page Functionality
     And User add the items and verify the added items and click continue
     Then Packers and movers service verified
     
-    @Login
+    @Login1
     Scenario: User navigates and manages in Packers and Movers for city tempo to move from one place to another
     Given User opens the menu on Home page for packers and movers
     When User selects packers and movers service
