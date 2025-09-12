@@ -44,7 +44,7 @@ public class LoginSteps {
 	public void the_user_enters_a_valid_phone_number() {
 		loginPage = new LoginPage(driver, extTest);
 		loginPage.clickLogin();
-		loginPage.enterMobileNumber("8778114144");  
+		loginPage.enterMobileNumber("7094080503");  
 	}
 	
 	@When("the user enters the invalid OTP")

@@ -34,6 +34,7 @@ public class LoginPage {
 		driver.findElement(Locators.loginButton).click();
 	}
 
+	//the user is on the login page
 	public void enterMobileNumber(String number) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    WebElement phoneInput = wait.until(
@@ -99,6 +100,7 @@ public class LoginPage {
 		}
 	}
 
+    //the user enters a invalid phone number
 	public boolean getOtpErrorMessage() {
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Please enter valid OTP')]")));
@@ -122,6 +124,7 @@ public class LoginPage {
         driver.findElement(Locators.resendOtpLink).click();
     }
 
+    //the login page should be loaded successfully
     public boolean pageLoadedSuccessfully() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.loginButton));

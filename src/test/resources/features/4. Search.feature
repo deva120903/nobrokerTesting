@@ -1,7 +1,7 @@
 Feature: Home Page Search and Navigation
   This feature tests different scenarios for the NoBroker search functionality.
 
-  @Login1
+  @Login
   Scenario: Missing landmark
     Given the user selects Chennai as location
     When the user leaves the landmark blank

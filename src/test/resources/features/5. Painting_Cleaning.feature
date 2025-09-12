@@ -1,6 +1,6 @@
 Feature: Verify the Painting & Cleaning page Functionality
 
-  @Login1
+  @Login
   Scenario: User navigates and manages items in Full Home Cleaning for Furnished Apartment
     Given User opens the menu on Home page
     When User selects Painting and Cleaning service

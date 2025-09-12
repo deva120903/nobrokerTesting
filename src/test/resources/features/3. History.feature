@@ -1,6 +1,6 @@
 Feature: Verify History Page Functionality
 
- @Login
+ @Login1
   Scenario: User views recent services in History
     Given User clicks on History tab
     And User selects a service from the history list
