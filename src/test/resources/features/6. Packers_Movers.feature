@@ -1,7 +1,7 @@
 Feature: Verify the Packers & Movers page Functionality
 
   @Login1
-  Scenario: User navigates and manages in Packers and Movers for move items from one place to another
+  Scenario: TS_PACKER_14 User navigates and manages in Packers and Movers for move items from one place to another
     Given User opens the menu on Home page for packers and movers
     When User selects packers and movers service
     And User clicks on within city
@@ -15,7 +15,7 @@ Feature: Verify the Packers & Movers page Functionality
     Then Packers and movers service verified
     
     @Login
-    Scenario: User navigates and manages in Packers and Movers for city tempo to move from one place to another
+    Scenario: TS_PACKER_15  User navigates and manages in Packers and Movers for city tempo to move from one place to another
     Given User opens the menu on Home page for packers and movers
     When User selects packers and movers service
     And User clicks on city tempo

@@ -1,7 +1,7 @@
 Feature: Verify the Painting & Cleaning page Functionality
 
   @Login
-  Scenario: User navigates and manages items in Full Home Cleaning for Furnished Apartment
+  Scenario: TS_PAINT_11 User navigates and manages items in Full Home Cleaning for Furnished Apartment
     Given User opens the menu on Home page
     When User selects Painting and Cleaning service
     And User clicks on Home Cleaning
@@ -16,7 +16,7 @@ Feature: Verify the Painting & Cleaning page Functionality
     Then Removed items should be updated successfully
 
    @Login
-   Scenario: User navigates and manages items in Interior and Exterior painting 
+   Scenario: TS_PAINT_12 User navigates and manages items in Interior and Exterior painting 
     Given User opens the menu on Home page
     When User selects Painting and Cleaning service
     And User clicks on painting
@@ -25,7 +25,7 @@ Feature: Verify the Painting & Cleaning page Functionality
     Then painting page should be visible
     
     
-  Scenario: User validates invalid search and restricted service selection
+  Scenario: TS_PAINT_13 User validates invalid search and restricted service selection
     Given User opens the menu on Home page
     When User selects Painting and Cleaning service
     And User enter invalid data and clicks the Search button

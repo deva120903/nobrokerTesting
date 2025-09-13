@@ -1,7 +1,7 @@
 Feature: Verify History Page Functionality
 
  @Login1
-  Scenario: User views recent services in History
+  Scenario: TS_HISTORY_07 User views recent services in History
     Given User clicks on History tab
     And User selects a service from the history list
     Then Relevant service details are displayed
